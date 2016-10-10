@@ -63,11 +63,11 @@ public class Shooter extends Subsystem {
     	return topFlywheel.get();
     }
 
-    public double getBottomFlywheelSpeed() {
+    double getBottomFlywheelSpeed() {
     	return bottomFlywheel.get();
     }
 
-    public double getIntakeSpeed() {
+    double getIntakeSpeed() {
     	return intakeRoller.get();
     }
 
