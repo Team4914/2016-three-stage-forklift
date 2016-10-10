@@ -88,10 +88,10 @@ public class OI {
     
     // driver controller joysticks
     public double driverLJ() { return driverController.getRawAxis(1); }
-    public double driverRJ() { return driverController.getRawAxis(5); }
+    public double driverRJ() { return driverJoystick.getRawAxis(5); }
     // codriver controller joysticks
-    public double codriverX() { return codriverController.getRawAxis(0); }
-    public double codriverY() { return codriverController.getRawAxis(1); }
-    public double codriverZ() { return codriverController.getRawAxis(2); }
+    public double codriverX() { return codriverJoystick.getRawAxis(0); }
+    public double codriverY() { return codriverJoystick.getRawAxis(1); }
+    public double codriverZ() { return codriverJoystick.getRawAxis(2); }
 }
 

@@ -99,7 +99,6 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         
-        // controlling robot
         Robot.drivetrain.setLeftSide(Robot.oi.driverRJ() * Robot.drivetrain.speedMultiplier);
 		Robot.drivetrain.setRightSide(Robot.oi.driverLJ() * Robot.drivetrain.speedMultiplier);
     }
