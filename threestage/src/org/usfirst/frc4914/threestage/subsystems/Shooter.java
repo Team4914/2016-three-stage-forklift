@@ -42,6 +42,11 @@ public class Shooter extends Subsystem {
     	}
     }
     
+    public void setFlywheels(double topSpeed, double bottomSpeed) {
+    	setTopFlywheel(topSpeed);
+    	setBottomFlywheel(bottomSpeed);
+    }
+    
     public void setIntake(double speed) {
     	if (speed <= 1 && speed >= -1) {
     		intakeRoller.set(speed);
