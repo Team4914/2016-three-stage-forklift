@@ -102,6 +102,11 @@ public class Robot extends IterativeRobot {
         // controlling robot
         Robot.drivetrain.setLeftSide(Robot.oi.driverRJ() * Robot.drivetrain.speedMultiplier);
 		Robot.drivetrain.setRightSide(Robot.oi.driverLJ() * Robot.drivetrain.speedMultiplier);
+		if (Robot.oi.driverLT() == 0) {
+			Robot.shooter.setIntake(Robot.oi.driverRT());
+		} else {
+			Robot.shooter.setIntake(-Robot.oi.driverLT());
+		}
     }
 
     /**
