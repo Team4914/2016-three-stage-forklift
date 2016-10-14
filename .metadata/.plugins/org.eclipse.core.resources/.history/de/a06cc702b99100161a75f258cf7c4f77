@@ -110,17 +110,14 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         
         if (Robot.oi.driverRJ() == 0 && Robot.oi.driverLJ() == 0) {
-        	// fine turning for shooting (codriver)
         	Robot.drivetrain.setLeftSide(-Robot.oi.codriverZ());
-        	Robot.drivetrain.setRightSide(Robot.oi.codriverZ());
-        } else {
-	        // driving robot (driver)
-	        Robot.drivetrain.setLeftSide(Robot.oi.driverRJ() * Robot.drivetrain.speedMultiplier);
-			Robot.drivetrain.setRightSide(Robot.oi.driverLJ() * Robot.drivetrain.speedMultiplier);
         }
-        
-        if (Robot.oi.driverLT() == 0 && Robot.oi.driverRT() == 0) { /* let co-driver control */ } 
-        else if (Robot.oi.driverLT() == 0) { // driver control of intake
+        // driving robot
+        Robot.drivetrain.setLeftSide(Robot.oi.driverRJ() * Robot.drivetrain.speedMultiplier);
+		Robot.drivetrain.setRightSide(Robot.oi.driverLJ() * Robot.drivetrain.speedMultiplier);
+		
+		// driver control of intake
+		if (Robot.oi.driverLT() == 0) {
 			Robot.shooter.setIntake(Robot.oi.driverRT());
 		} else {
 			Robot.shooter.setIntake(-Robot.oi.driverLT());

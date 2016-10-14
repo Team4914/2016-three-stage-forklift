@@ -3,4 +3,7 @@
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Joystick"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.buttons.JoystickButton"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Joystick.RumbleType"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.CameraServer"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.vision.USBCamera"/>
+<fullyQualifiedTypeName name="org.usfirst.frc4914.threestage.Robot"/>
 </qualifiedTypeNameHistroy>
