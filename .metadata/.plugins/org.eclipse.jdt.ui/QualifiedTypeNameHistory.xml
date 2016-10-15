@@ -5,5 +5,11 @@
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Joystick.RumbleType"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.CameraServer"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.vision.USBCamera"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.DoubleSolenoid.Value"/>
 <fullyQualifiedTypeName name="org.usfirst.frc4914.threestage.Robot"/>
+<fullyQualifiedTypeName name="com.ni.vision.NIVision.Image"/>
+<fullyQualifiedTypeName name="com.ni.vision.NIVision"/>
+<fullyQualifiedTypeName name="com.ni.vision.NIVision.ImageType"/>
+<fullyQualifiedTypeName name="com.ni.vision.NIVision.DrawMode"/>
+<fullyQualifiedTypeName name="com.ni.vision.NIVision.Point"/>
 </qualifiedTypeNameHistroy>

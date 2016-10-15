@@ -26,7 +26,6 @@ public class Drivetrain extends Subsystem {
     public void setRightSide(double speed) {
     	if (speed <= 1 && speed >= -1) {
     		if (inverted) { // checks for inverted drive
-    			speed = -speed;
     			leftSide.set(speed);
     		} else {
     			rightSide.set(speed);
@@ -42,7 +41,6 @@ public class Drivetrain extends Subsystem {
     	speed = -speed; // inverts value
     	if (speed <= 1 && speed >= -1) {
     		if (inverted) { // checks for inverted drive
-    			speed = -speed;
     			rightSide.set(speed);
     		} else {
     			leftSide.set(speed);
