@@ -105,6 +105,10 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        
+        // warms up flywheels
+        Command postAutoRunFlywheel = new ToggleLowGoalSpeeds();
+        postAutoRunFlywheel.start();
     }
 
     /**
@@ -115,16 +119,11 @@ public class Robot extends IterativeRobot {
         
         System.out.println(Robot.oi.driverLJ() + " " + Robot.oi.driverRJ());
         
-        if (Robot.oi.driverRJ() == 0 && Robot.oi.driverLJ() == 0) { 
-        	// fine turning for shooting (codriver)
-        	Robot.drivetrain.setLeftSide(-Robot.oi.codriverZ());
-        	Robot.drivetrain.setRightSide(Robot.oi.codriverZ());
-        } else {
-	        // driving robot (driver)
-	        Robot.drivetrain.setLeftSide(Robot.oi.driverRJ() * Robot.drivetrain.speedMultiplier);
-			Robot.drivetrain.setRightSide(Robot.oi.driverLJ() * Robot.drivetrain.speedMultiplier);
-        }
+        // combined driver and codriver inputs for driving
+        Robot.drivetrain.setLeftSide((-Robot.oi.codriverZ() * 0.5) + Robot.oi.driverLJ());
+        Robot.drivetrain.setRightSide((Robot.oi.codriverZ() * 0.5) + Robot.oi.driverRJ());
         
+        // intake control
         if (Robot.oi.driverLT() == 0 && Robot.oi.driverRT() == 0) { /* let co-driver control */ } 
         else if (Robot.oi.driverLT() == 0) { // driver control of intake
 			Robot.shooter.setIntake(Robot.oi.driverRT());
