@@ -40,6 +40,7 @@ public class InvertDrive extends Command {
     protected void initialize() {
     	Robot.drivetrain.inverted = !Robot.drivetrain.inverted;
     	Robot.oi.setDriverRumble(1);
+    	System.out.println(Robot.drivetrain.inverted);
     }
 
     // Called repeatedly when this Command is scheduled to run

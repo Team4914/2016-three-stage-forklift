@@ -60,7 +60,7 @@ public class RobotMap {
         armCompressor = new Compressor(0);
         
         
-        armDoubleSolenoid = new DoubleSolenoid(0, 0, 1);
+        armDoubleSolenoid = new DoubleSolenoid(0, 1, 0);
         LiveWindow.addActuator("Arm", "Double Solenoid", armDoubleSolenoid);
         
 

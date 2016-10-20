@@ -72,7 +72,7 @@ public class Robot extends IterativeRobot {
         server.setQuality(50);
         server.startAutomaticCapture("cam1");
         
-        Robot.arm.setExtension(false); // starts arm retracted
+        Robot.arm.setExtension(false); // starts arm retracted 
     }
 
     /**
@@ -89,6 +89,8 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
+        
+        Robot.arm.setExtension(false);
         if (autonomousCommand != null) autonomousCommand.start();
     }
 
@@ -109,6 +111,8 @@ public class Robot extends IterativeRobot {
         // warms up flywheels
         Command postAutoRunFlywheel = new ToggleLowGoalSpeeds();
         postAutoRunFlywheel.start();
+        
+        Robot.arm.setExtension(false);
     }
 
     /**
@@ -121,8 +125,8 @@ public class Robot extends IterativeRobot {
             Robot.drivetrain.setLeftSide((-Robot.oi.codriverZ() * -0.35) + Robot.oi.driverLJ());
             Robot.drivetrain.setRightSide((Robot.oi.codriverZ() * -0.35) + Robot.oi.driverRJ());
         } else {
-            Robot.drivetrain.setLeftSide((Robot.oi.codriverZ() * -0.35) - Robot.oi.driverRJ());
-            Robot.drivetrain.setRightSide((-Robot.oi.codriverZ() * -0.35) - Robot.oi.driverLJ());
+            Robot.drivetrain.setLeftSide((-Robot.oi.codriverZ() * -0.35) - Robot.oi.driverRJ());
+            Robot.drivetrain.setRightSide((Robot.oi.codriverZ() * -0.35) - Robot.oi.driverLJ());
         }
         
         // combined driver and codriver inputs for driving
@@ -131,13 +135,6 @@ public class Robot extends IterativeRobot {
         Robot.drivetrain.setRightSide((Robot.oi.codriverZ() * -0.35) + Robot.oi.driverRJ());
         */
         
-        // intake control
-        if (Robot.oi.driverLT() == 0 && Robot.oi.driverRT() == 0) { /* let co-driver control */ } 
-        else if (Robot.oi.driverLT() == 0) { // driver control of intake
-			Robot.shooter.setIntake(Robot.oi.driverRT());
-		} else {
-			Robot.shooter.setIntake(-Robot.oi.driverLT());
-		}
     }
 
     /**
