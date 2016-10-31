@@ -79,10 +79,16 @@ public class Robot extends IterativeRobot {
      * This function is called when the disabled button is hit.
      * You can use it to reset subsystems before shutting down.
      */
+<<<<<<< HEAD
+    public void disabledInit(){
+    	Robot.drivetrain.stop();
+    	Robot.shooter.stop();
+=======
     public void disabledInit() {
     	Robot.drivetrain.stop();
     	Robot.shooter.stop();
     	Robot.arm.stop();
+>>>>>>> origin/master
     }
 
     public void disabledPeriodic() {
@@ -101,6 +107,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        System.out.println(Robot.drivetrain.getLeftSpeed());
     }
 
     public void teleopInit() {
