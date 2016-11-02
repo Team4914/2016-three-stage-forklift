@@ -12,8 +12,8 @@
 <fullyQualifiedTypeName name="com.ni.vision.NIVision.ImageType"/>
 <fullyQualifiedTypeName name="com.ni.vision.NIVision.DrawMode"/>
 <fullyQualifiedTypeName name="com.ni.vision.NIVision.Point"/>
-<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.smartdashboard.SendableChooser"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.smartdashboard.SmartDashboard"/>
-<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.command.CommandGroup"/>
 <fullyQualifiedTypeName name="org.usfirst.frc1246.agincourt2016.Robot"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.smartdashboard.SendableChooser"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.command.CommandGroup"/>
 </qualifiedTypeNameHistroy>
