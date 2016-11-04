@@ -31,12 +31,12 @@ public class ToggleLowGoalSpeeds extends Command {
     protected void initialize() {
     	if (Robot.shooter.getTopFlywheelSpeed() == 0 &&
     			Robot.shooter.getBottomFlywheelSpeed() == 0) {
-        	topSpeed = -0.75;
-        	bottomSpeed = 0.5;
+        	topSpeed = -0.8;
+        	// bottomSpeed = 0.5;
     	}
     	else {
     		topSpeed = 0;
-    		bottomSpeed = 0;
+    		// bottomSpeed = 0;
     	}
     }
 

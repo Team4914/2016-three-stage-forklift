@@ -41,6 +41,10 @@ public class Arm extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
     
+    public void startCompressor() {
+    	compressor.start();
+    }
+    
     public void stop() {
     	compressor.stop();
     	doubleSolenoid.set(Value.kOff);
