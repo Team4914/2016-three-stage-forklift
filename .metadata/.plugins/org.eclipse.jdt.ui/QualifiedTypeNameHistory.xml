@@ -8,12 +8,13 @@
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.DoubleSolenoid.Value"/>
 <fullyQualifiedTypeName name="com.ni.vision.NIVision.Image"/>
 <fullyQualifiedTypeName name="com.ni.vision.NIVision"/>
-<fullyQualifiedTypeName name="com.ni.vision.NIVision.ImageType"/>
 <fullyQualifiedTypeName name="com.ni.vision.NIVision.DrawMode"/>
 <fullyQualifiedTypeName name="com.ni.vision.NIVision.Point"/>
 <fullyQualifiedTypeName name="org.usfirst.frc1246.agincourt2016.Robot"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.smartdashboard.SendableChooser"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.command.CommandGroup"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.smartdashboard.SmartDashboard"/>
+<fullyQualifiedTypeName name="com.ni.vision.NIVision.ImageType"/>
+<fullyQualifiedTypeName name="com.ni.vision.NIVision.Rect"/>
 <fullyQualifiedTypeName name="org.usfirst.frc4914.threestage.Robot"/>
 </qualifiedTypeNameHistroy>

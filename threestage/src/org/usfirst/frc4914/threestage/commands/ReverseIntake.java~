@@ -31,7 +31,9 @@ public class ReverseIntake extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.shooter.setIntake(-0.8);
-    	Robot.shooter.setBottomFlywheel(-0.25);
+    	if (Math.abs(Robot.shooter.getTopFlywheelSpeed()) < 0.5) {
+    		Robot.shooter.setBottomFlywheel(-0.25);
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -42,7 +44,7 @@ public class ReverseIntake extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.shooter.setIntake(0);
-    	if (Robot.shooter.getTopFlywheelSpeed() != -0.8) {
+    	if (Math.abs(Robot.shooter.getTopFlywheelSpeed()) < 0.5) {
     		Robot.shooter.setBottomFlywheel(0);
     	}
     }

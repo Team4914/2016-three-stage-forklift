@@ -31,7 +31,7 @@ public class RunIntake extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.shooter.setIntake(1);
-    	if (Robot.shooter.getTopFlywheelSpeed() <= 0.75) {
+    	if (Math.abs(Robot.shooter.getTopFlywheelSpeed()) <= 0.5) { 
     		Robot.shooter.setTopFlywheel(0.25);
     		Robot.shooter.setBottomFlywheel(-0.25);
     	}
@@ -45,7 +45,7 @@ public class RunIntake extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.shooter.setIntake(0);
-    	if (Robot.shooter.getTopFlywheelSpeed() <= 0.75) {   	
+    	if (Math.abs(Robot.shooter.getTopFlywheelSpeed()) <= 0.5) { 	
 	    	Robot.shooter.setTopFlywheel(0);
 	    	Robot.shooter.setBottomFlywheel(0);
     	}
