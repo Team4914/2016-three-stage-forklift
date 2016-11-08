@@ -166,7 +166,9 @@ public class Robot extends IterativeRobot {
         NIVision.IMAQdxStartAcquisition(session);
         // creates bounds for image overlay
         highGoalHorizontal = new NIVision.Rect(horizontalPos - 5, 260, markerThickness, markerLength);
-        highGoalVertical = new NIVision.Rect(200, verticalPos - 5, markerThickness, markerLength);
+        highGoalVertical = new NIVision.Rect(200, verticalPos - 5, markerLength, markerThickness);
+        lowGoalVertical = new NIVision.Rect(0, 320 - 5, 480, markerThickness);
+        
         
         // resets arm extension
         Robot.arm.setExtension(false);
@@ -193,8 +195,8 @@ public class Robot extends IterativeRobot {
         }
         
         // codriver fine turning
-        lSpeed += Robot.oi.codriverZ() * 0.35;
-        rSpeed += -Robot.oi.codriverZ() * 0.35;
+        lSpeed += Robot.oi.codriverZ() * 0.25;
+        rSpeed += -Robot.oi.codriverZ() * 0.25;
         
         // codriver fine distance
         /*
@@ -245,13 +247,14 @@ public class Robot extends IterativeRobot {
 	        // high goal markers
 	        if (currentServer == 'f') {
 	        	NIVision.imaqDrawShapeOnImage(frame, frame, highGoalHorizontal,
-	                DrawMode.DRAW_VALUE, ShapeMode.SHAPE_OVAL, 0x00ffff);
+	                DrawMode.PAINT_VALUE, ShapeMode.SHAPE_RECT, 0x00ffff);
 	        	NIVision.imaqDrawShapeOnImage(frame,  frame,  highGoalVertical,
-	        		DrawMode.HIGHLIGHT_VALUE, ShapeMode.SHAPE_RECT, 0x00ffff);
+	        		DrawMode.PAINT_VALUE, ShapeMode.SHAPE_RECT, 0x00ffff);
 	        }
 	        // low goal markers
 	        else if (currentServer == 'b') {
-	        	
+	        	NIVision.imaqDrawShapeOnImage(frame,  frame,  lowGoalVertical,
+	        		DrawMode.PAINT_VALUE, ShapeMode.SHAPE_RECT, 0x00ffff);
 	        }
 	        
 	        // sends image to cameraServer
