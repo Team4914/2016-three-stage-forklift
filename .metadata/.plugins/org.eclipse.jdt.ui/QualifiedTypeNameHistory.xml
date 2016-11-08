@@ -17,4 +17,6 @@
 <fullyQualifiedTypeName name="com.ni.vision.NIVision.ImageType"/>
 <fullyQualifiedTypeName name="org.usfirst.frc4914.threestage.Robot"/>
 <fullyQualifiedTypeName name="com.ni.vision.NIVision.Rect"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.PIDController"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Encoder"/>
 </qualifiedTypeNameHistroy>
