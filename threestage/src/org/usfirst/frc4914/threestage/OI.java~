@@ -85,11 +85,7 @@ public class OI {
 
 
         // SmartDashboard Buttons
-        SmartDashboard.putData("Run Intake", new RunIntake());
-        SmartDashboard.putData("Toggle Low Goal Speeds", new ToggleLowGoalSpeeds());
         SmartDashboard.putData("Toggle High Goal Speeds", new ToggleHighGoalSpeeds());
-        SmartDashboard.putData("Reverse Intake", new ReverseIntake());
-        SmartDashboard.putData("Invert Drive", new InvertDrive());
         SmartDashboard.putData("Lower Arm", new LowerArm());
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         SmartDashboard.putData("Auto Approach Defense", new AutoApproachDefense());

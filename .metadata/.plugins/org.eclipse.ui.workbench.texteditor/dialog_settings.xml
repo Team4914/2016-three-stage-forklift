@@ -2,17 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="switchRequest" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="switchPrompt"/>
+			<item value="frame"/>
 			<item value="setLeftDrive"/>
 			<item value="set"/>
 			<item value="// RobotBuilder Version: 2.0"/>
 		</list>
 		<list key="replacehistory">
+			<item value="switchRequest"/>
 			<item value=""/>
 		</list>
 	</section>

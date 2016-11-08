@@ -9865,3 +9865,175 @@ java.io.FileNotFoundException: C:\Program Files\eclipse\usrdict.txt (Access is d
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
+!SESSION 2016-11-07 07:56:26.811 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-11-07 07:57:17.546
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\cyamo'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-07 07:57:36.460
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-07 07:57:36.865
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-07 07:57:37.066
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-07 07:57:37.125
+!MESSAGE Installedjava
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:17:32.542
+!MESSAGE Running ant file: C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\threestage\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:17:32.567
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:19:32.638
+!MESSAGE Running ant file: C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\threestage\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:19:32.646
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:21:00.884
+!MESSAGE Running ant file: C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\threestage\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:21:00.890
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:21:13.223
+!MESSAGE Running ant file: C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\threestage\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:21:13.229
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:24:28.932
+!MESSAGE Running ant file: C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\threestage\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:24:28.937
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:25:12.450
+!MESSAGE Running ant file: C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\threestage\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:25:12.455
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:25:23.319
+!MESSAGE Running ant file: C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\threestage\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:25:23.323
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:28:29.509
+!MESSAGE Running ant file: C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\threestage\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:28:29.515
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:30:51.196
+!MESSAGE Running ant file: C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\threestage\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:30:51.202
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:31:39.075
+!MESSAGE Running ant file: C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\threestage\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:31:39.081
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:35:40.699
+!MESSAGE Running ant file: C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\threestage\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:35:40.705
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:40:20.168
+!MESSAGE Running ant file: C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\threestage\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-07 08:40:20.174
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2016-11-07 09:58:14.371
+!MESSAGE Internal Error
+!STACK 0
+java.io.FileNotFoundException: C:\Program Files\eclipse\usrdict.txt (Access is denied)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.jdt.internal.ui.text.spelling.engine.PersistentSpellDictionary.addWord(PersistentSpellDictionary.java:71)
+	at org.eclipse.jdt.internal.ui.text.spelling.engine.DefaultSpellChecker.addWord(DefaultSpellChecker.java:207)
+	at org.eclipse.jdt.internal.ui.text.spelling.AddWordProposal.apply(AddWordProposal.java:97)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractAnnotationHover$AnnotationInformationControl.apply(AbstractAnnotationHover.java:548)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractAnnotationHover$AnnotationInformationControl.access$2(AbstractAnnotationHover.java:525)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractAnnotationHover$AnnotationInformationControl$5.widgetSelected(AbstractAnnotationHover.java:519)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:249)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4410)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1103)
+	at org.eclipse.swt.widgets.Widget.sendSelectionEvent(Widget.java:1120)
+	at org.eclipse.swt.widgets.Link.WM_LBUTTONUP(Link.java:1035)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4828)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5102)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2552)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3814)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1121)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1022)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:150)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:687)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:604)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:138)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
+!SESSION 2016-11-07 22:00:24.587 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-11-07 22:00:45.579
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\cyamo'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-07 22:00:52.114
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-07 22:00:52.270
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-07 22:00:52.676
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-07 22:00:53.494
+!MESSAGE Installedjava

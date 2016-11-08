@@ -31,8 +31,8 @@ public class ToggleHighGoalSpeeds extends Command {
     protected void initialize() {
     	if (Robot.shooter.getTopFlywheelSpeed() == 0 &&
     			Robot.shooter.getBottomFlywheelSpeed() == 0) {
-        	topSpeed = 0.6;
-        	bottomSpeed = 0.69;
+        	topSpeed = 0.7;
+        	bottomSpeed = 0.8;
     	}
     	else {
     		topSpeed = 0;
