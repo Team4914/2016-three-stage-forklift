@@ -12,14 +12,9 @@
 package org.usfirst.frc4914.threestagecopy.subsystems;
 
 import org.usfirst.frc4914.threestagecopy.RobotMap;
-import org.usfirst.frc4914.threestagecopy.commands.*;
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Talon;
-
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 

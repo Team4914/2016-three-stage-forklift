@@ -12,10 +12,7 @@
 package org.usfirst.frc1246.agincourt2016.subsystems;
 
 import org.usfirst.frc1246.agincourt2016.RobotMap;
-import org.usfirst.frc1246.agincourt2016.commands.*;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Victor;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 

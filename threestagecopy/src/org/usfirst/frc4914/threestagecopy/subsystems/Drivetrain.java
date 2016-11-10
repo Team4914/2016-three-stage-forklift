@@ -12,10 +12,7 @@
 package org.usfirst.frc4914.threestagecopy.subsystems;
 
 import org.usfirst.frc4914.threestagecopy.RobotMap;
-import org.usfirst.frc4914.threestagecopy.commands.*;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Victor;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 

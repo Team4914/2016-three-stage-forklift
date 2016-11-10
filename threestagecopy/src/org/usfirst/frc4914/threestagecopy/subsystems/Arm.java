@@ -12,7 +12,6 @@
 package org.usfirst.frc4914.threestagecopy.subsystems;
 
 import org.usfirst.frc4914.threestagecopy.RobotMap;
-import org.usfirst.frc4914.threestagecopy.commands.*;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 

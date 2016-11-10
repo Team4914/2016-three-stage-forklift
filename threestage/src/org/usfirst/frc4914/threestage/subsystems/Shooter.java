@@ -1,11 +1,7 @@
 package org.usfirst.frc4914.threestage.subsystems;
 
 import org.usfirst.frc4914.threestage.RobotMap;
-import org.usfirst.frc4914.threestage.commands.*;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.TalonSRX;
-import edu.wpi.first.wpilibj.VictorSP;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 

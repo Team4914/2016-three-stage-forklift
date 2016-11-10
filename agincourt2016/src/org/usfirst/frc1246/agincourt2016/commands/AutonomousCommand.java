@@ -13,9 +13,6 @@ package org.usfirst.frc1246.agincourt2016.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-import org.usfirst.frc1246.agincourt2016.Robot;
-import org.usfirst.frc1246.agincourt2016.subsystems.*;
-
 /**
  *
  */

@@ -45,7 +45,8 @@ public class SetArm extends Command {
     // Called just before this Command runs the first time
  // Called just before this Command runs the first time
  	protected void initialize() {
- 		pid = new PIDController(-20, 0, 0, new PIDSource() {
+ 		/*
+ 		pid = new PIDController(20, 0, 0, new PIDSource() {
  			PIDSourceType m_sourceType = PIDSourceType.kDisplacement;
 
  			public double pidGet() {
@@ -74,6 +75,8 @@ public class SetArm extends Command {
  		Robot.motorizedArm.stop();
  		pid.reset();
  		pid.enable();
+ 		*/
+ 		Robot.motorizedArm.setSetpoint(m_setpoint);
  	}
 
  	// Called repeatedly when this Command is scheduled to run
@@ -83,14 +86,17 @@ public class SetArm extends Command {
 
  	// Make this return true when this Command no longer needs to run execute()
  	protected boolean isFinished() {
- 		return pid.onTarget();
+ 		// return pid.onTarget();
+ 		return true;
  	}
 
  	// Called once after isFinished returns true
  	protected void end() {
+ 		/*
  		// Stop PID and the motors
  		pid.free();
  		Robot.motorizedArm.stop();
+ 		*/
  	}
 
  	// Called when another command which requires one or more of the same

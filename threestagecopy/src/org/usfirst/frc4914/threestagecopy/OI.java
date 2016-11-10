@@ -15,7 +15,6 @@ import org.usfirst.frc4914.threestagecopy.commands.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.*;
-import org.usfirst.frc4914.threestagecopy.subsystems.*;
 
 
 /**

@@ -12,7 +12,6 @@
 package org.usfirst.frc4914.threestagecopy.commands;
 
 import edu.wpi.first.wpilibj.command.PIDCommand;
-import org.usfirst.frc4914.threestagecopy.Robot;
 import org.usfirst.frc4914.threestagecopy.RobotMap;
 
 /**

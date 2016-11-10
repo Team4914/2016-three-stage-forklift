@@ -15,7 +15,6 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc4914.threestagecopy.commands.*;
 import org.usfirst.frc4914.threestagecopy.subsystems.*;
 
 /**
