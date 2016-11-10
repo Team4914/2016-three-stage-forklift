@@ -19,4 +19,7 @@
 <fullyQualifiedTypeName name="com.ni.vision.NIVision.Rect"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.PIDController"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Encoder"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.command.PIDSubsystem"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.livewindow.LiveWindow"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.PIDSourceType"/>
 </qualifiedTypeNameHistroy>
