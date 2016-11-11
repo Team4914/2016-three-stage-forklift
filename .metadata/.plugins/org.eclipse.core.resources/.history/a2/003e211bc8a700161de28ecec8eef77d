@@ -83,9 +83,8 @@ public class Robot extends IterativeRobot {
         // creates autonomous chooser interface on SmartDashboard
         autoChooser = new SendableChooser();
         autoChooser.addDefault("Rock Wall/Ramparts/Rough Terrain", 
-        		new DriveStraight(0.25, 5));
+        		new DriveStraight(0.4, 7));
         autoChooser.addObject("Moat", new Moat());
-        autoChooser.addObject("Cheval", new Cheval());
         SmartDashboard.putData("Auto Chooser", autoChooser);
         
         // creates autonomous turning chooser on SmartDashboard
@@ -100,9 +99,16 @@ public class Robot extends IterativeRobot {
         session = NIVision.IMAQdxOpenCamera("cam1",
         		NIVision.IMAQdxCameraControlMode.CameraControlModeController);
         NIVision.IMAQdxConfigureGrab(session);
+        
+        // begins image acquisition
+        NIVision.IMAQdxStartAcquisition(session);
+        // creates bounds for image overlay
+        highGoalHorizontal = new NIVision.Rect(horizontalPos - 5, 260, markerThickness, markerLength);
+        highGoalVertical = new NIVision.Rect(200, verticalPos - 5, markerLength, markerThickness);
+        lowGoalVertical = new NIVision.Rect(0, 320 - 5, 480, markerThickness);
 
         // sets arm to brake mode
-        Robot.motorizedArm.setBrake(true);
+        // Robot.motorizedArm.setBrake(true);
         // resets encoder
         Robot.motorizedArm.resetEncoder();
     }
@@ -115,10 +121,7 @@ public class Robot extends IterativeRobot {
     	// safely stops all subsystems
     	Robot.drivetrain.stop();
     	Robot.shooter.stop();
-    	Robot.arm.stop();
-    	
-    	// closes camera
-    	NIVision.IMAQdxStopAcquisition(session);
+    	Robot.motorizedArm.stop();
     }
 
     /**
@@ -126,18 +129,35 @@ public class Robot extends IterativeRobot {
      */
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
+        
+        // sets frame to grabbed image from camera
+        NIVision.IMAQdxGrab(session, frame, 1);
+	    
+        // high goal markers
+        if (currentServer == 'f') {
+        	NIVision.imaqDrawShapeOnImage(frame, frame, highGoalHorizontal,
+                DrawMode.PAINT_VALUE, ShapeMode.SHAPE_RECT, 0x00ffff);
+        	NIVision.imaqDrawShapeOnImage(frame,  frame,  highGoalVertical,
+        		DrawMode.PAINT_VALUE, ShapeMode.SHAPE_RECT, 0x00ffff);
+        }
+        // low goal markers
+        else if (currentServer == 'b') {
+        	NIVision.imaqDrawShapeOnImage(frame,  frame,  lowGoalVertical,
+        		DrawMode.PAINT_VALUE, ShapeMode.SHAPE_RECT, 0x00ffff);
+        }
+        
+        // sends image to cameraServer
+        CameraServer.getInstance().setImage(frame);
     }
 
     /**
      * This function runs once autonomous begins
      */
     public void autonomousInit() {
+    	autonomousCommand = new CommandGroup();
     	// constructs autonomous command based on SmartDashboard inputs
     	autonomousCommand.addSequential((Command) autoChooser.getSelected());
     	autonomousCommand.addSequential((Command) autoTurnChooser.getSelected());
-        
-    	// resets arm extension
-        Robot.arm.setExtension(false);
         
         // begins autonomous command
         if (autonomousCommand != null) autonomousCommand.start();
@@ -163,22 +183,6 @@ public class Robot extends IterativeRobot {
         // warms up flywheels
         Command postAutoRunFlywheel = new ToggleHighGoalSpeeds();
         postAutoRunFlywheel.start();
-        
-        // begins image acquisition
-        NIVision.IMAQdxStartAcquisition(session);
-        // creates bounds for image overlay
-        highGoalHorizontal = new NIVision.Rect(horizontalPos - 5, 260, markerThickness, markerLength);
-        highGoalVertical = new NIVision.Rect(200, verticalPos - 5, markerLength, markerThickness);
-        lowGoalVertical = new NIVision.Rect(0, 320 - 5, 480, markerThickness);
-        
-        /*
-        Command foo;
-        foo = new SetArm(0.3);
-        foo.start();
-        */
-        
-        // resets arm extension
-        Robot.arm.setExtension(false);
     }
 
     /**
@@ -202,32 +206,44 @@ public class Robot extends IterativeRobot {
         }
         
         // codriver fine turning
-        lSpeed += Robot.oi.codriverZ() * 0.25;
-        rSpeed += -Robot.oi.codriverZ() * 0.25;
+        lSpeed += Robot.oi.codriverZ() * 0.35;
+        rSpeed += -Robot.oi.codriverZ() * 0.35;
         
         // codriver fine distance
         /*
-        lSpeed += Robot.oi.codriverX() * 0.35;
-        rSpeed += Robot.oi.codriverX() * 0.35;
+        lSpeed += Robot.oi.codriverX() * 0.25;
+        rSpeed += Robot.oi.codriverX() * 0.25;
         */
         
         // passing values to speed controllers
         Robot.drivetrain.setLeftSide(lSpeed);
         Robot.drivetrain.setRightSide(rSpeed);
 
-        // bringing arm up and down
-        if (Robot.oi.driverRT() < 0.1) {
-        	// passes control to left trigger (bringing up)
-        	Robot.motorizedArm.setMotors(Robot.oi.driverLJ()*-0.25);
-        } else if (Robot.oi.driverLT() < 0.1) {
-        	// passes control to right trigger (bringing down)
-        	Robot.motorizedArm.setMotors(Robot.oi.driverRJ()*0.25);
+        // if behind backward setpoint, only allows arm to move forward
+        if (Robot.motorizedArm.getEncoder() > MotorizedArm.backwardLimit) {
+        	Robot.motorizedArm.setMotors(Robot.oi.driverRT()*-0.25);
+        }
+        // if below forward setpoint, only allows arm to move backward
+        else if (Robot.motorizedArm.getEncoder() < MotorizedArm.forwardLimit) {
+        	Robot.motorizedArm.setMotors(Robot.oi.driverLT()*0.25);
+        }
+        // if between backward and forward setpoint, allows free control
+        else {
+	        // free arm control
+	        if (Robot.oi.driverLT() < 0.1) {
+	        	// passes control to left trigger (bringing up)
+	        	Robot.motorizedArm.setMotors(Robot.oi.driverRT()*-0.25);
+	        } else if (Robot.oi.driverRT() < 0.1) {
+	        	// passes control to right trigger (bringing down)
+	        	Robot.motorizedArm.setMotors(Robot.oi.driverLT()*0.25);
+	        }
         }
         
         // DEBUG
         // System.out.println("Top: " + Robot.shooter.getBottomFlywheelSpeed());
         // System.out.println("Btm: " + Robot.shooter.getTopFlywheelSpeed());
         System.out.println("Enc: " + Robot.motorizedArm.getEncoder());
+        
         
         // if camera switch requested
         if (switchRequest) {

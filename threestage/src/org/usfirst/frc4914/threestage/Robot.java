@@ -99,6 +99,13 @@ public class Robot extends IterativeRobot {
         session = NIVision.IMAQdxOpenCamera("cam1",
         		NIVision.IMAQdxCameraControlMode.CameraControlModeController);
         NIVision.IMAQdxConfigureGrab(session);
+        
+        // begins image acquisition
+        NIVision.IMAQdxStartAcquisition(session);
+        // creates bounds for image overlay
+        highGoalHorizontal = new NIVision.Rect(horizontalPos - 5, 260, markerThickness, markerLength);
+        highGoalVertical = new NIVision.Rect(200, verticalPos - 5, markerLength, markerThickness);
+        lowGoalVertical = new NIVision.Rect(0, 320 - 5, 480, markerThickness);
 
         // sets arm to brake mode
         // Robot.motorizedArm.setBrake(true);
@@ -115,9 +122,6 @@ public class Robot extends IterativeRobot {
     	Robot.drivetrain.stop();
     	Robot.shooter.stop();
     	Robot.motorizedArm.stop();
-    	
-    	// closes camera
-    	NIVision.IMAQdxStopAcquisition(session);
     }
 
     /**
@@ -125,6 +129,25 @@ public class Robot extends IterativeRobot {
      */
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
+        
+        // sets frame to grabbed image from camera
+        NIVision.IMAQdxGrab(session, frame, 1);
+	    
+        // high goal markers
+        if (currentServer == 'f') {
+        	NIVision.imaqDrawShapeOnImage(frame, frame, highGoalHorizontal,
+                DrawMode.PAINT_VALUE, ShapeMode.SHAPE_RECT, 0x00ffff);
+        	NIVision.imaqDrawShapeOnImage(frame,  frame,  highGoalVertical,
+        		DrawMode.PAINT_VALUE, ShapeMode.SHAPE_RECT, 0x00ffff);
+        }
+        // low goal markers
+        else if (currentServer == 'b') {
+        	NIVision.imaqDrawShapeOnImage(frame,  frame,  lowGoalVertical,
+        		DrawMode.PAINT_VALUE, ShapeMode.SHAPE_RECT, 0x00ffff);
+        }
+        
+        // sends image to cameraServer
+        CameraServer.getInstance().setImage(frame);
     }
 
     /**
@@ -160,13 +183,6 @@ public class Robot extends IterativeRobot {
         // warms up flywheels
         Command postAutoRunFlywheel = new ToggleHighGoalSpeeds();
         postAutoRunFlywheel.start();
-        
-        // begins image acquisition
-        NIVision.IMAQdxStartAcquisition(session);
-        // creates bounds for image overlay
-        highGoalHorizontal = new NIVision.Rect(horizontalPos - 5, 260, markerThickness, markerLength);
-        highGoalVertical = new NIVision.Rect(200, verticalPos - 5, markerLength, markerThickness);
-        lowGoalVertical = new NIVision.Rect(0, 320 - 5, 480, markerThickness);
     }
 
     /**
@@ -241,7 +257,7 @@ public class Robot extends IterativeRobot {
         		session = NIVision.IMAQdxOpenCamera("cam0",
         				NIVision.IMAQdxCameraControlMode.CameraControlModeController);
         		currentServer = 'b';
-        	} 
+        	}
         	// switches camera server from back to front
         	else if (currentServer == 'b') {
                 session = NIVision.IMAQdxOpenCamera("cam1",
