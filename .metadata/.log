@@ -11919,3 +11919,208 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-10 23:29:46.470
 !MESSAGE Installedjava
+!SESSION 2016-11-11 11:45:02.999 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-11-11 11:45:22.055
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\cyamo'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2016-11-11 11:45:26.443
+!MESSAGE Connection to http://download.eclipse.org/releases/neon/p2.index failed on download.eclipse.org. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:131)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-11 11:45:26.755
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-11 11:45:26.855
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-11 11:45:26.904
+!MESSAGE Installing java if necessary
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2016-11-11 11:45:26.991
+!MESSAGE Unknown Host: http://download.eclipse.org/releases/neon/compositeContent.xml
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-11 11:45:27.150
+!MESSAGE Installedjava
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2016-11-11 11:45:27.349
+!MESSAGE Connection to http://download.eclipse.org/eclipse/updates/4.6/p2.index failed on download.eclipse.org. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:131)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2016-11-11 11:45:28.133
+!MESSAGE Unknown Host: http://download.eclipse.org/eclipse/updates/4.6/compositeContent.xml
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2016-11-11 11:45:29.231
+!MESSAGE Connection to http://first.wpi.edu/FRC/roborio/release/eclipse/p2.index failed on first.wpi.edu. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: first.wpi.edu
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:131)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2016-11-11 11:45:29.966
+!MESSAGE Unknown Host: http://first.wpi.edu/FRC/roborio/release/eclipse/content.xml
+!STACK 0
+java.net.UnknownHostException: first.wpi.edu
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-11 11:45:32.388
+!MESSAGE Running ant file: C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\threestage\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-11 11:45:32.403
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-11 11:48:48.490
+!MESSAGE Running ant file: C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\threestage\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-11-11 11:48:48.501
+!MESSAGE Targets: deploy, Mode: run
+!SESSION 2016-11-11 23:11:53.758 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-11-11 23:12:14.660
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\cyamo'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-11 23:12:20.551
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-11 23:12:20.660
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-11 23:12:20.723
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-11 23:12:21.598
+!MESSAGE Installedjava
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-11 23:13:46.653
+!MESSAGE [edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@116f823c, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@7f5a5ef3, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@4c53ce60, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@3d1b6816, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@508863eb, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@7d8802cf, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@2f7af3d0, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@494775f1, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@5ac3d009, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@67e03fe4, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@1ffcb4bb, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@6d66a248, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@29617475, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@4f9871a2, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@353b5d86, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@6d17cd8b, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@4ff7de80, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@43eea3bd, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@2cd6112b]
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-11 23:13:46.669
+!MESSAGE [edu.wpi.first.wpilib.plugins.core.wizards.Tag@7f7eeaaf, edu.wpi.first.wpilib.plugins.core.wizards.Tag@e8c381e, edu.wpi.first.wpilib.plugins.core.wizards.Tag@38499139, edu.wpi.first.wpilib.plugins.core.wizards.Tag@240a9052, edu.wpi.first.wpilib.plugins.core.wizards.Tag@2ca93dee, edu.wpi.first.wpilib.plugins.core.wizards.Tag@430abcad, edu.wpi.first.wpilib.plugins.core.wizards.Tag@373e3dac, edu.wpi.first.wpilib.plugins.core.wizards.Tag@4746b319, edu.wpi.first.wpilib.plugins.core.wizards.Tag@2265a052, edu.wpi.first.wpilib.plugins.core.wizards.Tag@341c8f67, edu.wpi.first.wpilib.plugins.core.wizards.Tag@72090715, edu.wpi.first.wpilib.plugins.core.wizards.Tag@25bc36, edu.wpi.first.wpilib.plugins.core.wizards.Tag@fcdeb50, edu.wpi.first.wpilib.plugins.core.wizards.Tag@5f7a2a79, edu.wpi.first.wpilib.plugins.core.wizards.Tag@65f1bf2c]
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-11 23:14:39.029
+!MESSAGE [edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@1b3639a1, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@59df8444, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@4ac7f844, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@64641bb2, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@4eb5cdae, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@6bed8d98, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@1e9d5d79, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@5ae06c93, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@3a5812dc, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@3ddec942, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@495c3d15, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@10014459, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@6ab56a77, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@216a3aba, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@9760f17, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@13cfa1ec, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@52688730, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@2227c82d, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@1b9075c9]
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-11-11 23:14:39.045
+!MESSAGE [edu.wpi.first.wpilib.plugins.core.wizards.Tag@75be6796, edu.wpi.first.wpilib.plugins.core.wizards.Tag@63793f16, edu.wpi.first.wpilib.plugins.core.wizards.Tag@7f03e5f4, edu.wpi.first.wpilib.plugins.core.wizards.Tag@6725f9e0, edu.wpi.first.wpilib.plugins.core.wizards.Tag@6121b045, edu.wpi.first.wpilib.plugins.core.wizards.Tag@4b8ab2f8, edu.wpi.first.wpilib.plugins.core.wizards.Tag@2b46d238, edu.wpi.first.wpilib.plugins.core.wizards.Tag@6364d449, edu.wpi.first.wpilib.plugins.core.wizards.Tag@fabe3f8, edu.wpi.first.wpilib.plugins.core.wizards.Tag@11a88d87, edu.wpi.first.wpilib.plugins.core.wizards.Tag@ce24a98, edu.wpi.first.wpilib.plugins.core.wizards.Tag@496101d1, edu.wpi.first.wpilib.plugins.core.wizards.Tag@19858f26, edu.wpi.first.wpilib.plugins.core.wizards.Tag@4c14ed24, edu.wpi.first.wpilib.plugins.core.wizards.Tag@523cc8b4]
