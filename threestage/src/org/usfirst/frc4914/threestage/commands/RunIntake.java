@@ -33,7 +33,7 @@ public class RunIntake extends Command {
     	Robot.shooter.setIntake(1);
     	if (Math.abs(Robot.shooter.getTopFlywheelSpeed()) <= 0.5) { 
     		Robot.shooter.setTopFlywheel(0.25);
-    		Robot.shooter.setBottomFlywheel(-0.25);
+    		Robot.shooter.setBottomFlywheel(-0.18);
     	}
     }
 

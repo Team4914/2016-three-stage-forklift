@@ -4,7 +4,6 @@
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.buttons.JoystickButton"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Joystick.RumbleType"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.CameraServer"/>
-<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.vision.USBCamera"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.DoubleSolenoid.Value"/>
 <fullyQualifiedTypeName name="com.ni.vision.NIVision.Image"/>
 <fullyQualifiedTypeName name="com.ni.vision.NIVision"/>
@@ -22,4 +21,5 @@
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.livewindow.LiveWindow"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.PIDSourceType"/>
 <fullyQualifiedTypeName name="org.usfirst.frc4914.threestage.Robot"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.vision.USBCamera"/>
 </qualifiedTypeNameHistroy>
