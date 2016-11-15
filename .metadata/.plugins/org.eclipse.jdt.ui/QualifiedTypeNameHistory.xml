@@ -5,7 +5,6 @@
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Joystick.RumbleType"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.CameraServer"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.DoubleSolenoid.Value"/>
-<fullyQualifiedTypeName name="com.ni.vision.NIVision.Image"/>
 <fullyQualifiedTypeName name="com.ni.vision.NIVision"/>
 <fullyQualifiedTypeName name="com.ni.vision.NIVision.DrawMode"/>
 <fullyQualifiedTypeName name="com.ni.vision.NIVision.Point"/>
@@ -15,11 +14,13 @@
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.smartdashboard.SmartDashboard"/>
 <fullyQualifiedTypeName name="com.ni.vision.NIVision.ImageType"/>
 <fullyQualifiedTypeName name="com.ni.vision.NIVision.Rect"/>
-<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.PIDController"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Encoder"/>
-<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.command.PIDSubsystem"/>
-<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.livewindow.LiveWindow"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.PIDSourceType"/>
 <fullyQualifiedTypeName name="org.usfirst.frc4914.threestage.Robot"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.command.PIDCommand"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.PIDController"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.command.PIDSubsystem"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.livewindow.LiveWindow"/>
+<fullyQualifiedTypeName name="com.ni.vision.NIVision.Image"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.vision.USBCamera"/>
 </qualifiedTypeNameHistroy>
