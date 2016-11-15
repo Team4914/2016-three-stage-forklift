@@ -27,7 +27,7 @@ public class Drivetrain extends PIDSubsystem {
     	setAbsoluteTolerance(5); // tolerance in pixels
     	getPIDController().setContinuous(false);
     	setOutputRange(-0.9, 0.9);
-    	LiveWindow.addActuator("Motorized Arm", "PIDSubsystemController", getPIDController());
+    	LiveWindow.addActuator("Drivetrain", "PIDSubsystemController", getPIDController());
     }
     
     protected double returnPIDInput() {

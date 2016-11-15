@@ -84,6 +84,10 @@ public class Robot extends IterativeRobot {
 	Image frame;
 	Image binaryFrame;
 	int imaqError;
+	
+	public static boolean visionEnabled = false;
+	static int currentGoalHorCentre = -1;
+	static int currentGoalVertCentre = -1;
 
     Command autonomousCommand;
 
@@ -175,72 +179,6 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-        
-        NIVision.IMAQdxGrab(session, frame, 1);
-		//Update threshold values from SmartDashboard. For performance reasons it is recommended to remove this after calibration is finished.
-		GOAL_HUE_RANGE.minValue = (int)SmartDashboard.getNumber("Goal hue min", GOAL_HUE_RANGE.minValue);
-		GOAL_HUE_RANGE.maxValue = (int)SmartDashboard.getNumber("Goal hue max", GOAL_HUE_RANGE.maxValue);
-		GOAL_SAT_RANGE.minValue = (int)SmartDashboard.getNumber("Goal sat min", GOAL_SAT_RANGE.minValue);
-		GOAL_SAT_RANGE.maxValue = (int)SmartDashboard.getNumber("Goal sat max", GOAL_SAT_RANGE.maxValue);
-		GOAL_VAL_RANGE.minValue = (int)SmartDashboard.getNumber("Goal val min", GOAL_VAL_RANGE.minValue);
-		GOAL_VAL_RANGE.maxValue = (int)SmartDashboard.getNumber("Goal val max", GOAL_VAL_RANGE.maxValue);
-
-		//Threshold the image looking for yellow (goal color)
-		NIVision.imaqColorThreshold(binaryFrame, frame, 255, NIVision.ColorMode.HSV, GOAL_HUE_RANGE, GOAL_SAT_RANGE, GOAL_VAL_RANGE);
-
-		//Send particle count to dashboard
-		int numParticles = NIVision.imaqCountParticles(binaryFrame, 1);
-		SmartDashboard.putNumber("Masked particles", numParticles);
-
-		//Send masked image to dashboard to assist in tweaking mask.
-		CameraServer.getInstance().setImage(binaryFrame);
-
-		//filter out small particles
-		float areaMin = (float)SmartDashboard.getNumber("Area min %", AREA_MINIMUM);
-		criteria[0].lower = areaMin;
-		imaqError = NIVision.imaqParticleFilter4(binaryFrame, binaryFrame, criteria, filterOptions, null);
-
-		//Send particle count after filtering to dashboard
-		numParticles = NIVision.imaqCountParticles(binaryFrame, 1);
-		SmartDashboard.putNumber("Filtered particles", numParticles);
-
-		if(numParticles > 0)
-		{
-			//Measure particles and sort by particle size
-			Vector<ParticleReport> particles = new Vector<ParticleReport>();
-			for(int particleIndex = 0; particleIndex < numParticles; particleIndex++)
-			{
-				ParticleReport par = new ParticleReport();
-				par.PercentAreaToImageArea = NIVision.imaqMeasureParticle(binaryFrame, particleIndex, 0, NIVision.MeasurementType.MT_AREA_BY_IMAGE_AREA);
-				par.Area = NIVision.imaqMeasureParticle(binaryFrame, particleIndex, 0, NIVision.MeasurementType.MT_AREA);
-				par.BoundingRectTop = NIVision.imaqMeasureParticle(binaryFrame, particleIndex, 0, NIVision.MeasurementType.MT_BOUNDING_RECT_TOP);
-				par.BoundingRectLeft = NIVision.imaqMeasureParticle(binaryFrame, particleIndex, 0, NIVision.MeasurementType.MT_BOUNDING_RECT_LEFT);
-				par.BoundingRectBottom = NIVision.imaqMeasureParticle(binaryFrame, particleIndex, 0, NIVision.MeasurementType.MT_BOUNDING_RECT_BOTTOM);
-				par.BoundingRectRight = NIVision.imaqMeasureParticle(binaryFrame, particleIndex, 0, NIVision.MeasurementType.MT_BOUNDING_RECT_RIGHT);
-				particles.add(par);
-			}
-			particles.sort(null);
-
-			SmartDashboard.putNumber("Right", particles.elementAt(0).BoundingRectRight);
-			SmartDashboard.putNumber("Left", particles.elementAt(0).BoundingRectLeft);
-			SmartDashboard.putNumber("Top", particles.elementAt(0).BoundingRectTop);
-			SmartDashboard.putNumber("Bottom", particles.elementAt(0).BoundingRectBottom);
-
-			//This example only scores the largest particle. Extending to score all particles and choosing the desired one is left as an exercise
-			//for the reader. Note that this scores and reports information about a single particle (single L shaped target). To get accurate information 
-			//about the location of the goal (not just the distance) you will need to correlate two adjacent targets in order to find the true center of the goal.
-			scores.Aspect = AspectScore(particles.elementAt(0));
-			SmartDashboard.putNumber("Aspect", scores.Aspect);
-			scores.Area = AreaScore(particles.elementAt(0));
-			SmartDashboard.putNumber("Area", scores.Area);
-			boolean isGoal = scores.Aspect > RATIO_MIN && scores.Aspect < RATIO_MAX;
-
-			//Send distance and goal status to dashboard. The bounding rect, particularly the horizontal center (left - right) may be useful for rotating/driving towards a goal
-			SmartDashboard.putBoolean("IsGoal", isGoal);
-			SmartDashboard.putNumber("Distance", computeDistance(binaryFrame, particles.elementAt(0)));
-		} else {
-			SmartDashboard.putBoolean("IsGoal", false);
-		}
     }
 
     public void teleopInit() {
@@ -289,7 +227,86 @@ public class Robot extends IterativeRobot {
         // System.out.println("Top: " + Robot.shooter.getBottomFlywheelSpeed());
         // System.out.println("Btm: " + Robot.shooter.getTopFlywheelSpeed());
         
+        NIVision.IMAQdxGrab(session, frame, 1);
+        if (!visionEnabled) {
+        	CameraServer.getInstance().setImage(frame);
+        }
+        
+        if (visionEnabled) {    
+    		//Update threshold values from SmartDashboard. For performance reasons it is recommended to remove this after calibration is finished.
+    		GOAL_HUE_RANGE.minValue = (int)SmartDashboard.getNumber("Goal hue min", GOAL_HUE_RANGE.minValue);
+    		GOAL_HUE_RANGE.maxValue = (int)SmartDashboard.getNumber("Goal hue max", GOAL_HUE_RANGE.maxValue);
+    		GOAL_SAT_RANGE.minValue = (int)SmartDashboard.getNumber("Goal sat min", GOAL_SAT_RANGE.minValue);
+    		GOAL_SAT_RANGE.maxValue = (int)SmartDashboard.getNumber("Goal sat max", GOAL_SAT_RANGE.maxValue);
+    		GOAL_VAL_RANGE.minValue = (int)SmartDashboard.getNumber("Goal val min", GOAL_VAL_RANGE.minValue);
+    		GOAL_VAL_RANGE.maxValue = (int)SmartDashboard.getNumber("Goal val max", GOAL_VAL_RANGE.maxValue);
 
+    		//Threshold the image looking for yellow (goal color)
+    		NIVision.imaqColorThreshold(binaryFrame, frame, 255, NIVision.ColorMode.HSV, GOAL_HUE_RANGE, GOAL_SAT_RANGE, GOAL_VAL_RANGE);
+
+    		//Send particle count to dashboard
+    		int numParticles = NIVision.imaqCountParticles(binaryFrame, 1);
+    		SmartDashboard.putNumber("Masked particles", numParticles);
+
+    		//Send masked image to dashboard to assist in tweaking mask.
+    		//binaryFrame for masked image, frame for original image
+    		CameraServer.getInstance().setImage(binaryFrame);
+
+    		//filter out small particles
+    		float areaMin = (float)SmartDashboard.getNumber("Area min %", AREA_MINIMUM);
+    		criteria[0].lower = areaMin;
+    		imaqError = NIVision.imaqParticleFilter4(binaryFrame, binaryFrame, criteria, filterOptions, null);
+
+    		//Send particle count after filtering to dashboard
+    		numParticles = NIVision.imaqCountParticles(binaryFrame, 1);
+    		SmartDashboard.putNumber("Filtered particles", numParticles);
+
+    		if(numParticles > 0)
+    		{
+    			//Measure particles and sort by particle size
+    			Vector<ParticleReport> particles = new Vector<ParticleReport>();
+    			for(int particleIndex = 0; particleIndex < numParticles; particleIndex++)
+    			{
+    				ParticleReport par = new ParticleReport();
+    				par.PercentAreaToImageArea = NIVision.imaqMeasureParticle(binaryFrame, particleIndex, 0, NIVision.MeasurementType.MT_AREA_BY_IMAGE_AREA);
+    				par.Area = NIVision.imaqMeasureParticle(binaryFrame, particleIndex, 0, NIVision.MeasurementType.MT_AREA);
+    				par.BoundingRectTop = NIVision.imaqMeasureParticle(binaryFrame, particleIndex, 0, NIVision.MeasurementType.MT_BOUNDING_RECT_TOP);
+    				par.BoundingRectLeft = NIVision.imaqMeasureParticle(binaryFrame, particleIndex, 0, NIVision.MeasurementType.MT_BOUNDING_RECT_LEFT);
+    				par.BoundingRectBottom = NIVision.imaqMeasureParticle(binaryFrame, particleIndex, 0, NIVision.MeasurementType.MT_BOUNDING_RECT_BOTTOM);
+    				par.BoundingRectRight = NIVision.imaqMeasureParticle(binaryFrame, particleIndex, 0, NIVision.MeasurementType.MT_BOUNDING_RECT_RIGHT);
+    				particles.add(par);
+    			}
+    			particles.sort(null);
+
+    			SmartDashboard.putNumber("Right", particles.elementAt(0).BoundingRectRight);
+    			SmartDashboard.putNumber("Left", particles.elementAt(0).BoundingRectLeft);
+    			SmartDashboard.putNumber("Top", particles.elementAt(0).BoundingRectTop);
+    			SmartDashboard.putNumber("Bottom", particles.elementAt(0).BoundingRectBottom);
+    			
+    			// calculates goal centre
+    			currentGoalHorCentre = (int) (particles.elementAt(0).BoundingRectRight - particles.elementAt(0).BoundingRectLeft);
+    			currentGoalHorCentre /= 2;
+    			currentGoalHorCentre += particles.elementAt(0).BoundingRectLeft;
+    			currentGoalVertCentre = (int) (particles.elementAt(0).BoundingRectBottom - particles.elementAt(0).BoundingRectTop);
+    			currentGoalVertCentre /= 2;
+    			currentGoalVertCentre += particles.elementAt(0).BoundingRectTop;
+
+    			//This example only scores the largest particle. Extending to score all particles and choosing the desired one is left as an exercise
+    			//for the reader. Note that this scores and reports information about a single particle (single L shaped target). To get accurate information 
+    			//about the location of the goal (not just the distance) you will need to correlate two adjacent targets in order to find the true center of the goal.
+    			scores.Aspect = AspectScore(particles.elementAt(0));
+    			SmartDashboard.putNumber("Aspect", scores.Aspect);
+    			scores.Area = AreaScore(particles.elementAt(0));
+    			SmartDashboard.putNumber("Area", scores.Area);
+    			boolean isGoal = scores.Aspect > RATIO_MIN && scores.Aspect < RATIO_MAX;
+
+    			//Send distance and goal status to dashboard. The bounding rect, particularly the horizontal center (left - right) may be useful for rotating/driving towards a goal
+    			SmartDashboard.putBoolean("IsGoal", isGoal);
+    			SmartDashboard.putNumber("Distance", computeDistance(binaryFrame, particles.elementAt(0)));
+    		} else {
+    			SmartDashboard.putBoolean("IsGoal", false);
+    		}
+        } // end of if (visionEnabled)
     }
 
     /**
@@ -349,5 +366,13 @@ public class Robot extends IterativeRobot {
 		targetWidth = 7;
 
 		return  targetWidth/(normalizedWidth*12*Math.tan(VIEW_ANGLE*Math.PI/(180*2)));
+	}
+
+	public static int getCurrentGoalHorCentre() {
+		return currentGoalHorCentre;
+	}
+	
+	public static int getCurrentGoalVertCentre() {
+		return currentGoalVertCentre;
 	}
 }

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;org.usfirst.frc4914.threestagevision.commands.TrackTarget&apos; to &apos;CentreTarget&apos;&#x0D;&#x0A;- Original project: &apos;threestagevision&apos;&#x0D;&#x0A;- Original element: &apos;org.usfirst.frc4914.threestagevision.commands.TrackTarget&apos;&#x0D;&#x0A;- Renamed element: &apos;org.usfirst.frc4914.threestagevision.commands.CentreTarget&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;TrackTarget&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;org.usfirst.frc4914.threestagevision.commands{TrackTarget.java[TrackTarget" matchStrategy="1" name="CentreTarget" qualified="false" references="true" similarDeclarations="false" stamp="1479175330806" textual="false" version="1.0"/>
+</session>
