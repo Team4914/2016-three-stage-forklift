@@ -24,11 +24,11 @@ public class TrackTarget extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addParallel(new ToggleHighGoalSpeeds());
+    	// addParallel(new ToggleHighGoalSpeeds());
     	addSequential(new CentreTarget());
     	addSequential(new DistanceTarget());
-    	addSequential(new CentreTarget());
-    	addSequential(new RunIntake(2.5));
+    	// addSequential(new CentreTarget());
+    	addSequential(new RunIntake(1.5));
     	addSequential(new ToggleHighGoalSpeeds());
     	
     }

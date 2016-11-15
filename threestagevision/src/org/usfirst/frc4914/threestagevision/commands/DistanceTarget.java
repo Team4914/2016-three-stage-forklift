@@ -23,7 +23,7 @@ import org.usfirst.frc4914.threestagevision.Robot;
  */
 public class DistanceTarget extends Command {
 	private PIDController pid;
-	int m_setpoint = 375;
+	int m_setpoint = 310;
 
 	public DistanceTarget() {
     }
@@ -33,7 +33,7 @@ public class DistanceTarget extends Command {
  	protected void initialize() {
  		Robot.visionEnabled = true;
  		
- 		pid = new PIDController(1, 0, 0, new PIDSource() {
+ 		pid = new PIDController(-0.5, 0, 0, new PIDSource() {
  			PIDSourceType m_sourceType = PIDSourceType.kDisplacement;
 
  			public double pidGet() {
@@ -54,9 +54,9 @@ public class DistanceTarget extends Command {
  				Robot.drivetrain.drive(d);
  			}
  		});
- 		pid.setAbsoluteTolerance(5); // 10 pixel total offset tolerance
+ 		pid.setAbsoluteTolerance(2); // 10 pixel total offset tolerance
  		pid.setSetpoint(m_setpoint);
- 		pid.setOutputRange(-0.2, 0.2);
+ 		pid.setOutputRange(-0.15, 0.15);
  		
  		// Get everything in a safe starting state.
  		Robot.drivetrain.stop();
@@ -79,6 +79,7 @@ public class DistanceTarget extends Command {
  		pid.free();
  		Robot.drivetrain.stop();
  		Robot.visionEnabled = false;
+ 		Robot.resetGoalValues();
  	}
 
  	// Called when another command which requires one or more of the same

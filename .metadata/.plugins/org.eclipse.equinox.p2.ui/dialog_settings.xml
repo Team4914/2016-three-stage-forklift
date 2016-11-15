@@ -29,7 +29,7 @@
 		<item value="883" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="646" key="DIALOG_HEIGHT"/>
-		<item value="250" key="DIALOG_X_ORIGIN"/>
-		<item value="8" key="DIALOG_Y_ORIGIN"/>
+		<item value="160" key="DIALOG_X_ORIGIN"/>
+		<item value="391" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

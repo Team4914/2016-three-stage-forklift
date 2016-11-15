@@ -33,7 +33,7 @@ public class CentreTarget extends Command {
  	protected void initialize() {
  		Robot.visionEnabled = true;
  		
- 		pid = new PIDController(1, 0, 0, new PIDSource() {
+ 		pid = new PIDController(0.7, 0, 0, new PIDSource() {
  			PIDSourceType m_sourceType = PIDSourceType.kDisplacement;
 
  			public double pidGet() {
@@ -54,9 +54,9 @@ public class CentreTarget extends Command {
  				Robot.drivetrain.turn(d);
  			}
  		});
- 		pid.setAbsoluteTolerance(5); // 10 pixel total offset tolerance
+ 		pid.setAbsoluteTolerance(10); // 10 pixel total offset tolerance
  		pid.setSetpoint(m_setpoint);
- 		pid.setOutputRange(-0.9, 0.9);
+ 		pid.setOutputRange(-0.4, 0.4);
  		
  		// Get everything in a safe starting state.
  		Robot.drivetrain.stop();
@@ -79,6 +79,7 @@ public class CentreTarget extends Command {
  		pid.free();
  		Robot.drivetrain.stop();
  		Robot.visionEnabled = false;
+ 		Robot.resetGoalValues();
  	}
 
  	// Called when another command which requires one or more of the same
