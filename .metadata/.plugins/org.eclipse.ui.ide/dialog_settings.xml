@@ -5,6 +5,7 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\offloadPOC"/>
 			<item value="C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\threestagevision"/>
 			<item value="C:\Users\cyamo\Documents\GitHub\2016-three-stage-forklift\threestagecopy"/>
 			<item value="C:\Users\FRC Team 4914\Documents\GitHub\2016-three-stage-forklift\agincourt2016"/>

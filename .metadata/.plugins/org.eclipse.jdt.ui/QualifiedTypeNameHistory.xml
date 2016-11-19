@@ -23,4 +23,6 @@
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.livewindow.LiveWindow"/>
 <fullyQualifiedTypeName name="com.ni.vision.NIVision.Image"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.vision.USBCamera"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.networktables.NetworkTable"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Timer"/>
 </qualifiedTypeNameHistroy>
