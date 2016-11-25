@@ -25,4 +25,16 @@
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.vision.USBCamera"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.networktables.NetworkTable"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Timer"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="org.opencv.core.Scalar"/>
+<fullyQualifiedTypeName name="org.opencv.highgui.VideoCapture"/>
+<fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
+<fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
+<fullyQualifiedTypeName name="java.awt.Image"/>
+<fullyQualifiedTypeName name="java.awt.image.DataBufferByte"/>
+<fullyQualifiedTypeName name="org.opencv.core.MatOfPoint"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.opencv.imgproc.Imgproc"/>
 </qualifiedTypeNameHistroy>
