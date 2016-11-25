@@ -24,8 +24,8 @@ public class hello
    public static void main( String[] args )
    {
 	   System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-	   VideoCapture cap = new VideoCapture(1);
-	   if (!cap.isOpened()) System.out.println("Failed!");
+	   VideoCapture cap = new VideoCapture(0);
+	   if (!cap.isOpened()) System.out.println("Failed to open camera!");
 	   
 	   Size sz = new Size(320,240);
 	   Scalar bottom = new Scalar(60, 100, 100);
@@ -45,6 +45,7 @@ public class hello
 		   // Imgproc.GaussianBlur(frame, frame, new Size(7,7), 1.5, 1.5);
 		   // Imgproc.Canny(frame, frame, 0, 30);
 		   
+		   /*
 			BufferedImage bi = (BufferedImage) toBufferedImage(frame);
 			File outputfile = new File("saved.jpg");
 			ImageIO.write(bi,  "jpg",  outputfile);
@@ -52,20 +53,19 @@ public class hello
 			bi = (BufferedImage) toBufferedImage(frame1);
 			outputfile = new File("saved1.jpg");
 			ImageIO.write(bi,  "jpg", outputfile);
+			*/
 		   
-		   List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
-		   Imgproc.findContours(frame, contours, frame1, Imgproc.RETR_EXTERNAL, Imgproc.CHAIN_APPROX_SIMPLE);
-		   
-		   List<MatOfPoint> filteredContours = new ArrayList<MatOfPoint>();
-		   for (MatOfPoint mop : contours) {
-			   if (Imgproc.contourArea(mop) > minArea) filteredContours.add(mop);
-		   }
+		   	List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
+		   	Imgproc.findContours(frame, contours, frame1, Imgproc.RETR_EXTERNAL, Imgproc.CHAIN_APPROX_SIMPLE);
+		   	
+		   	List<MatOfPoint> filteredContours = new ArrayList<MatOfPoint>();
+		   	for (MatOfPoint mop : contours) {
+		   		if (Imgproc.contourArea(mop) > minArea) filteredContours.add(mop);
+		   	}
 
 		   Moments M = Imgproc.moments(filteredContours.get(0));
 		   int cX = (int)(M.get_m10() / M.get_m00());
 		   int cY = (int)(M.get_m01() / M.get_m00());
-		   
-		   // System.out.println("here");
 		   
 		   System.out.println(cX + " " + cY);
 		   } catch (Exception e) {}
