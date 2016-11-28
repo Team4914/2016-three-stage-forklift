@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="VertCentre" key="selection"/>
+		<item value="turn" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="turn"/>
 			<item value="HorCentre"/>
 			<item value="&quot;Aspect&quot;"/>
 			<item value="ATTR_EX_MODE"/>
@@ -15,7 +16,6 @@
 			<item value="ATTR_e"/>
 			<item value="ATTR_"/>
 			<item value="ATTR"/>
-			<item value="m_id"/>
 		</list>
 		<list key="replacehistory">
 			<item value="VertCentre"/>
@@ -27,9 +27,9 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="282" key="DIALOG_WIDTH"/>
-		<item value="1|Segoe UI|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
-		<item value="373" key="DIALOG_HEIGHT"/>
+		<item value="336" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="454" key="DIALOG_HEIGHT"/>
 		<item value="806" key="DIALOG_X_ORIGIN"/>
 		<item value="165" key="DIALOG_Y_ORIGIN"/>
 	</section>
