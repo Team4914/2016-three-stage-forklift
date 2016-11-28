@@ -8,7 +8,7 @@ import cv2
 
 COLOR_MIN = np.array([60, 100, 100])
 COLOR_MAX = np.array([85, 255, 255])
-MIN_AREA = 250
+MIN_AREA = 175
 CAM_ID = 0
 DEBUG = False
 
@@ -44,7 +44,7 @@ while True:
 		M = cv2.moments(c)
 		cX = int(M["m10"] / M["m00"])
 		cY = int(M["m01"] / M["m00"])
-	
+
 		print(cX)
 		print(cY)
 		print("----")
