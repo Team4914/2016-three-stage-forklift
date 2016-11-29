@@ -56,7 +56,7 @@ public class CentreTarget extends Command {
  		});
  		pid.setAbsoluteTolerance(10); // 10 pixel total offset tolerance
  		pid.setSetpoint(m_setpoint);
- 		pid.setOutputRange(-0.4, 0.4);
+ 		pid.setOutputRange(-0.9, 0.9);
  		
  		// Get everything in a safe starting state.
  		Robot.drivetrain.stop();

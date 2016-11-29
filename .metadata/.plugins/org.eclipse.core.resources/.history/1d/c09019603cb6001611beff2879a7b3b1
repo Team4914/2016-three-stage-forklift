@@ -56,7 +56,7 @@ public class DistanceTarget extends Command {
  		});
  		pid.setAbsoluteTolerance(2); // 10 pixel total offset tolerance
  		pid.setSetpoint(m_setpoint);
- 		pid.setOutputRange(-0.3, 0.3);
+ 		pid.setOutputRange(-0.3, 0.25);
  		
  		// Get everything in a safe starting state.
  		Robot.drivetrain.stop();
