@@ -23,7 +23,7 @@ import org.usfirst.frc4914.threestagevision.Robot;
  */
 public class CentreTarget extends Command {
 	private PIDController pid;
-	int m_setpoint = 355;
+	int m_setpoint = 177;
 
 	public CentreTarget() {
     }
