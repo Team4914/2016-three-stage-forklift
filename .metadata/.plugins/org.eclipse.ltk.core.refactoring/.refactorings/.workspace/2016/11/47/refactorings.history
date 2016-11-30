@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Delete resource &apos;threestagecopy&apos;" deleteContents="false" description="Delete resource &apos;threestagecopy&apos;" element1="/threestagecopy" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1479135807756"/>
-</session>
