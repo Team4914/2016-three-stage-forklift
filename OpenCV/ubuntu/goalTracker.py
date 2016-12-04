@@ -1,14 +1,10 @@
 import os
 import numpy as np
 import cv2
-from networktables import NetworkTable
+import math
+# from networktables import NetworkTable
 
-os.system("sudo bash /home/pi/vision/init.sh")
-
-NetworkTable.setIPAddress("roboRIO-4914-FRC.local")
-NetworkTable.setClientMode()
-NetworkTable.initialize()
-table = NetworkTable.getTable("ContoursReport")
+os.system("sudo bash init.sh")
 
 def cart2pol(a):
     x = a[0]
@@ -24,6 +20,11 @@ def pol2cart(a):
     y = rho * np.sin(phi)
     return([x, y])
 
+# NetworkTable.setIPAddress("roboRIO-4914-FRC.local")
+# NetworkTable.setClientMode()
+# NetworkTable.initialize()
+# table = NetworkTable.getTable("ContoursReport")
+
 COLOR_MIN = np.array([60, 100, 100])
 COLOR_MAX = np.array([85, 255, 255])
 MIN_AREA = 250
@@ -32,8 +33,8 @@ VIEW_ANGLE *= 360
 VIEW_ANGLE /= 2*3.1415926535
 TARGET_LENGTH = 51 # width of retroreflective tape, in cm
 FOV_PIXEL = 320
-CAM_ID = 0
-DEBUG = False
+CAM_ID = 1
+DEBUG = True
 
 cap = cv2.VideoCapture(CAM_ID)
 
@@ -43,7 +44,7 @@ while True:
 
 	# resize image to 320x240
 	frame = cv2.resize(frame, (0,0), fx=0.5, fy=0.5)
-
+	
 	# convert BGR format to HSV
 	hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
@@ -58,7 +59,7 @@ while True:
 		cv2.imshow('frame', frame)
 
 	# find contours based on thresholded image
-	_, contours, heirarchy = cv2.findContours(frame, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+	contours, heirarchy = cv2.findContours(frame, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
 	# clear array of contours from previous iteration
 	filteredContours = []
@@ -88,8 +89,11 @@ while True:
 		cX = int(M["m10"] / M["m00"])
 		cY = int(M["m01"] / M["m00"])
 
-		# bounding rectangle
+		# x,y,w,h = cv2.boundingRect(c)
+    		# cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
 		rect = cv2.minAreaRect(c)
+		# box = cv2.boxPoints(rect)
+		print (rect[1][0])
 
 		wX = rect[1][0]/2
 		wY = rect[1][1]/2
@@ -97,65 +101,67 @@ while True:
 		xLeft = -wX
 		xRight = wX
 		yBottom = wY
-		# yTop = -wY
+		yTop = -wY
 
-		# topLeft = [xLeft, yTop]
-		# topRight = [xRight, yTop]
+		topLeft = [xLeft, yTop]
+		topRight = [xRight, yTop]
 		bottomLeft = [xLeft, yBottom]
 		bottomRight = [xRight, yBottom]
 
 		theta = rect[2]/360
 		theta *= 3.1415926535*2
 
-		# topLeft = cart2pol(topLeft)
-		# topRight = cart2pol(topRight)
+		topLeft = cart2pol(topLeft)
+		topRight = cart2pol(topRight)
 		bottomLeft = cart2pol(bottomLeft)
 		bottomRight = cart2pol(bottomRight)
 
-		# topLeft[1] += theta
-		# topRight[1] += theta
+		topLeft[1] += theta
+		topRight[1] += theta
 		bottomLeft[1] += theta
 		bottomRight[1] += theta
 
-		# topLeft = pol2cart(topLeft)
-		# topRight = pol2cart(topRight)
+		topLeft = pol2cart(topLeft)
+		topRight = pol2cart(topRight)
 		bottomLeft = pol2cart(bottomLeft)
 		bottomRight = pol2cart(bottomRight)
 
-		# topLeft[0] += cX
-		# topLeft[1] += cY
-		# topRight[0] += cX
-		# topRight[1] += cY
+		topLeft[0] += cX
+		topLeft[1] += cY
+		topRight[0] += cX
+		topRight[1] += cY
 		bottomLeft[0] += cX
 		bottomLeft[1] += cY
 		bottomRight[0] += cX
 		bottomRight[1] += cY
 
-		lenW = np.abs(bottomRight[0] - bottomLeft[0])
-		lenH = np.abs(bottomRight[1] - bottomLeft[1])
-		targetPixelLength = np.sqrt(lenW**2 + lenH**2)
+		targetPixelLength = cv2.norm(bottomLeft, bottomRight)
 
 		targetDistance = TARGET_LENGTH*FOV_PIXEL
-		targetDistance /= 2*targetPixelLength*np.tan(VIEW_ANGLE)
+		targetDistance /= 2*targetPixelLength*Math.tan(VIEW_ANGLE)
 
 		print("TargetDistance:", targetDistance)
+
+		# box = [topLeft, topRight, bottomRight, bottomLeft]		
+		# box = np.int0(box)
+		# cv2.drawContours(hsv, [box], 0, (0,0,255),2)
+
+		# cv2.imshow('asdf', hsv)
 
 		# prints center X and center Y to console for debug purposes
 		print("cX:", repr(cX).rjust(3), " cY:", repr(cY).rjust(3))
 
 		# publishes contour values to networkTable ContoursReport
-		table.putNumber('isTarget', 1)
-		table.putNumber('cX', cX)
-		table.putNumber('cY', cY)
-		table.putNumber('dist', targetDistance)
+		# table.putNumber('isTarget', 1)
+		# table.putNumber('cX', cX)
+		# table.putNumber('cY', cY)
 
 	# publishes default values to table if no target found
-	else:
+	# else:
 		# publishes default no target values to networkTable ContoursReport
-		table.putNumber('isTarget', 0)
-		table.putNumber('cX', -1)
-		table.putNumber('cY', -1)
-		table.putNumber('dist', -1)
+		# table.putNumber('isTarget', 0)
+		# table.putNumber('cX', -1)
+		# table.putNumber('cY', -1)
 
 	if DEBUG:
 		if cv2.waitKey(1) & 0xFF == ord('q'):
